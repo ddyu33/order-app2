@@ -1,0 +1,21 @@
+{
+  "name": "cozy-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.13.0"
+  },
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "check": "node --check src/server.js && node --check src/app.js && node --check src/db/pool.js && node --check src/routes/health.js && node --check src/routes/menus.js && node --check src/routes/orders.js && node --check src/routes/admin.js && node --check src/lib/http-error.js && node --check src/lib/order-repository.js && node --check src/scripts/migrate.js",
+    "db:migrate": "node src/scripts/migrate.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "pg": "^8.13.1"
+  }
+}
