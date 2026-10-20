@@ -3,11 +3,6 @@ import './App.css'
 
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '')
 
-async function requestJson(url, options) {
-  const response = await fetch(`${API_BASE_URL}${url}`, options)
-  // 나머지 코드는 그대로 유지
-}
-
 const currency = new Intl.NumberFormat('ko-KR')
 const formatPrice = (price) => `${currency.format(price)}원`
 const getCoffeeStyle = (name) =>
@@ -19,7 +14,7 @@ const orderStatuses = {
 }
 
 async function requestJson(url, options) {
-  const response = await fetch(url, options)
+  const response = await fetch(`${API_BASE_URL}${url}`, options)
   const data = await response.json().catch(() => null)
 
   if (!response.ok) {
